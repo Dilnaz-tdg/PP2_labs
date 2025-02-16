@@ -13,8 +13,8 @@ for item in data["imdata"]:
     attributes = item.get("l1PhysIf", {}).get("attributes", {})
     
     dn = attributes.get("dn", "")
-    description = attributes.get("descr", "")  # Если нет описания, по умолчанию "inherit"
+    description = attributes.get("descr", "")  
     speed = attributes.get("speed", "inherit")
     mtu = attributes.get("mtu", "")
 
-    print(f"{dn:<50} {description:<25} {speed:<10} {mtu:<6}")  # Форматируем вывод
+    print(f"{dn:<50} {description:<25} {speed:<10} {mtu:<6}") 
