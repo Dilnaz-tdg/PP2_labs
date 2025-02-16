@@ -18,7 +18,7 @@ area = ((b1+b2)*h)/2
 ns = int(input("Input number of sides: "))
 length = float(input("Input the length of a side: "))
 
-areaofpolygon = (ns*(length**2))/4*math.tan(math.pi/ns)
+areaofpolygon = (ns*(length**2))/(4*math.tan(math.pi/ns))
 """print(f"The area of the polygon is: {areaofpolygon:.1f}")"""
 
 #4
