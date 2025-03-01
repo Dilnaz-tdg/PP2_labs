@@ -2,8 +2,8 @@
 
 lst = [1,2,3,4,5,6]
 answ = 1
-for i in range(1, len(lst)+1):
-    answ = answ * i
+for i in range(0, len(lst)):
+    answ *= lst[i]
 
 print(answ)
 
@@ -37,5 +37,5 @@ def invoke():
 invoke()
 
 #5
-tuple = (1, 1, "yes", "no")
+mytuple = (1, 1, "yes", "no")
 print(all(tuple))
