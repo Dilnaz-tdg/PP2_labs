@@ -63,15 +63,15 @@ class Food:
             x = random.randint(0, WIDTH // CELL - 1)
             y = random.randint(0, HEIGHT // CELL - 1)
             on_snake = False
-            for segment in snake.body:
+            for segment in snake.body: #есть ли совпадение координат с телом змейки
                 if segment.x == x and segment.y == y:
                     on_snake = True
                     break
-            if not on_snake:
-                self.pos = Point(x, y)
+            if not on_snake: # если место есть создаем еду
+                self.pos = Point(x, y) # сохраняем позицию еды 
                 break
-        self.value = random.choice([1,3,5])
-        self.spawn_time = pygame.time.get_ticks()
+        self.value = random.choice([1,3,5]) 
+        self.spawn_time = pygame.time.get_ticks() #сохраняем момент времени появления еды
 
 
         if self.value == 1:
@@ -117,7 +117,7 @@ while running:
 
     current_time = pygame.time.get_ticks()
     if food.value == 5 and current_time - food.spawn_time > 5000:
-       food = Food(snake)
+       food = Food(snake) #новая еда 
 
     # проверка стены
     head = snake.body[0]

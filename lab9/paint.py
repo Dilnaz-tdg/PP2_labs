@@ -10,7 +10,7 @@ COLOR_red = (255, 0, 0)
 eraser = (0, 0, 0)
 
 
-screen = pygame.display.set_mode((640, 480))
+screen = pygame.display.set_mode((640, 480)) #экран
 pygame.display.set_caption("Paint")
 clock = pygame.time.Clock()
 
@@ -19,42 +19,42 @@ mode = COLOR_white
 last_pos = None
 
 def drawCircle(screen, mouse_pos, color):
-    x, y = mouse_pos
-    pygame.draw.circle(screen, color, (x, y), 90, 3)
+    x, y = mouse_pos 
+    pygame.draw.circle(screen, color, (x, y), 90, 3) # радиус 90, толщина 3 
 
 def drawLineBetween(screen, start, end, width, color_mode):
-    dx = start[0] - end[0]
-    dy = start[1] - end[1]
+    dx = start[0] - end[0] #разность координат по х
+    dy = start[1] - end[1] #по у 
     iterations = max(abs(dx), abs(dy))
 
-    for i in range(iterations):
-        progress = i / iterations
-        aprogress = 1 - progress
+    for i in range(iterations): #отрисовка кругами
+        progress = i / iterations #от 0 - 1 
+        aprogress = 1 - progress # обратно
         x = int(aprogress * start[0] + progress * end[0])
         y = int(aprogress * start[1] + progress * end[1])
-        pygame.draw.circle(screen, color_mode, (x, y), width)
+        pygame.draw.circle(screen, color_mode, (x, y), width) # рисуем круг
 
 def drawRectangle(screen, mouse_pos, w, h, color):
-    x, y = mouse_pos
-    rect = pygame.Rect(x, y, w, h)
-    pygame.draw.rect(screen, color, rect, 3)
+    x, y = mouse_pos # верхний левый угол
+    rect = pygame.Rect(x, y, w, h) # прямоугольник
+    pygame.draw.rect(screen, color, rect, 3) 
 
 def drawSquare(screen, mouse_pos, w, h, color):
     x, y = mouse_pos
-    rect = pygame.Rect(x, y, w, h)
+    rect = pygame.Rect(x, y, w, h) 
     pygame.draw.rect(screen, color, rect, 3)
 
 def drawRightTriangle(screen, mouse_pos, width, height, color):
     x, y = mouse_pos
-    point1 = (x, y)                
-    point2 = (x + width, y)        
-    point3 = (x, y + height)      
+    point1 = (x, y) #первый угол          
+    point2 = (x + width, y) #второй угол      
+    point3 = (x, y + height) #третий угол      
     pygame.draw.polygon(screen, color, [point1, point2, point3], 3)  
 
 
 def drawEquilateralTriangle(screen, mouse_pos, side_length, color):
     x, y = mouse_pos 
-    height = (math.sqrt(3) / 2) * side_length
+    height = (math.sqrt(3) / 2) * side_length #высота треугольника 
 
     point1 = (x, y)  #верхняя точка
     point2 = (x - side_length / 2, y + height)  #нижняя левая
@@ -64,10 +64,10 @@ def drawEquilateralTriangle(screen, mouse_pos, side_length, color):
 
 def drawRhombus(screen, mouse_pos, width, height, color):
     x, y = mouse_pos
-    top = (x, y - height // 2)
-    right = (x + width // 2, y)
-    bottom = (x, y + height // 2)
-    left = (x - width // 2, y)
+    top = (x, y - height // 2) #верхняя 
+    right = (x + width // 2, y) #правая
+    bottom = (x, y + height // 2) #нижняя
+    left = (x - width // 2, y) #левая
 
     pygame.draw.polygon(screen, color, [top, right, bottom, left], 3)
 
